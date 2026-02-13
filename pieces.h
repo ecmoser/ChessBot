@@ -5,36 +5,36 @@
 
 class Pawn : public Piece {
 public:
-  std::vector<std::vector<int>> getMoves(Board &board) override;
+  std::vector<std::vector<int>> getMoves() override;
   PieceType getType() override;
 };
 
 class Knight : public Piece {
 public:
-  std::vector<std::vector<int>> getMoves(Board &board) override;
+  std::vector<std::vector<int>> getMoves() override;
   PieceType getType() override;
 };
 
 class Bishop : public Piece {
 public:
-  std::vector<std::vector<int>> getMoves(Board &board) override;
+  std::vector<std::vector<int>> getMoves() override;
   PieceType getType() override;
 };
 
 class Rook : public Piece {
 public:
-  std::vector<std::vector<int>> getMoves(Board &board) override;
+  std::vector<std::vector<int>> getMoves() override;
   PieceType getType() override;
 };
 
 class Queen : public Piece {
 public:
-  std::vector<std::vector<int>> getMoves(Board &board) override;
+  std::vector<std::vector<int>> getMoves() override;
   PieceType getType() override;
 };
 
 class King : public Piece {
 public:
-  std::vector<std::vector<int>> getMoves(Board &board) override;
+  std::vector<std::vector<int>> getMoves() override;
   PieceType getType() override;
 };
