@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(ChessBotQt VERSION 0.1 LANGUAGES CXX)
+project(ChessBot VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -17,6 +17,10 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        board.cpp
+        board.h
+        pieces.cpp
+        pieces.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
