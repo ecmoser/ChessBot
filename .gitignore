@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Prerequisites
 *.d
 
@@ -123,4 +122,6 @@ CMakeLists.txt.user*
 .rcc/
 .uic/
 /build*/
->>>>>>> c64dd18 (created a new Qt project)
+
+.cache/
+compile_commands.json
