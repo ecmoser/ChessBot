@@ -25,10 +25,9 @@ bool Board::whiteInCheck() {
     }
   }
   for (Piece *piece : blackPieces) {
-    for (std::vector<int> move : piece->getMoves()) {
-      int pieceFile = piece->getFile() + move[0];
-      int pieceRank = piece->getRank() + move[1];
-      if (pieceFile == king->getFile() && pieceRank == king->getRank()) {
+    for (Move move : piece->getMoves()) {
+      if (move.getFile() == king->getFile() &&
+          move.getRank() == king->getRank()) {
         return true;
       }
     }
@@ -44,10 +43,9 @@ bool Board::blackInCheck() {
     }
   }
   for (Piece *piece : whitePieces) {
-    for (std::vector<int> move : piece->getMoves()) {
-      int pieceFile = piece->getFile() + move[0];
-      int pieceRank = piece->getRank() + move[1];
-      if (pieceFile == king->getFile() && pieceRank == king->getRank()) {
+    for (Move move : piece->getMoves()) {
+      if (move.getFile() == king->getFile() &&
+          move.getRank() == king->getRank()) {
         return true;
       }
     }
