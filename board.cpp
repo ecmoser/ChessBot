@@ -2,11 +2,20 @@
 #include <vector>
 
 Board::Board(std::vector<Piece *> whitePieces, std::vector<Piece *> blackPieces)
-    : whitePieces(whitePieces), blackPieces(blackPieces) {}
+    : whitePieces(whitePieces), blackPieces(blackPieces) {
+  moves = {};
+}
 
 std::vector<Piece *> Board::getWhitePieces() { return whitePieces; }
 
 std::vector<Piece *> Board::getBlackPieces() { return blackPieces; }
+
+std::vector<Move> Board::getMoves() { return moves; }
+
+void Board::makeMove(Move move) {
+  move.getPiece()->moveTo(move.getFile(), move.getRank());
+  moves.push_back(move);
+}
 
 bool Board::whiteInCheck() {
   Piece *king;
@@ -51,7 +60,7 @@ Piece::Piece() : white(1) {}
 Piece::Piece(Board *board, int file, int rank, bool white)
     : board(board), file(file), rank(rank), white(white) {}
 
-std::vector<std::vector<int>> Piece::getMoves() { return {{}}; }
+std::vector<Move> Piece::getMoves() { return {}; }
 
 PieceType Piece::getType() { return PieceType::NONE; }
 
@@ -59,9 +68,18 @@ int Piece::getFile() { return file; }
 
 int Piece::getRank() { return rank; }
 
-void Piece::move(std::vector<int> move) {
-  file += move[0];
-  rank += move[1];
+void Piece::moveTo(int newFile, int newRank) {
+  file = newFile;
+  rank = newRank;
 }
 
 bool Piece::isWhite() { return white; }
+
+Move::Move(Piece *piece, int file, int rank)
+    : piece(piece), file(file), rank(rank) {}
+
+Piece *Move::getPiece() { return piece; }
+
+int Move::getFile() { return file; }
+
+int Move::getRank() { return rank; }
